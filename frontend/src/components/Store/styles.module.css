@@ -1,0 +1,255 @@
+.middleHeader {
+    font-size: 65px;
+    margin: 15px auto 30px;
+    width: 90%;
+    text-align: center;
+    font-family: "Titan One", sans-serif;
+    color: #fff;
+    text-shadow: 4px 4px rgba(0, 0, 0, .2);
+}
+
+@media screen and (max-width: 550px) {
+    .middleHeader {
+        font-size: 50px;
+    }
+}
+
+.middlePerks {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 550px) {
+    .middlePerks {
+        width: 100%;
+    }
+}
+
+.perkContainer,
+.perkIcon {
+    display: flex;
+    align-items: center;
+}
+
+.perkContainer {
+    border-radius: 7px;
+    background-color: var(--colors-secondary);
+    margin: 10px;
+    width: 400px;
+    height: 120px;
+    padding: 10px 10px 16px;
+    box-shadow: inset 0 -6px rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 550px) {
+    .perkContainer {
+        width: 100%;
+        height: 160px;
+    }
+}
+
+.perkIcon {
+    min-width: 75px;
+    height: 75px;
+    justify-content: center;
+    font-size: 60px;
+    text-shadow: 2px 2px rgba(0, 0, 0, .2);
+    color: #fff;
+}
+
+.perkInfo {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-size: 18px;
+    width: calc(100% - 90px);
+}
+
+.perkTitle {
+    font-family: "Titan One", sans-serif;
+    font-size: 26px;
+    text-shadow: 2px 2px rgba(0, 0, 0, .2);
+}
+
+.plan {
+    width: 350px;
+    background-color: var(--colors-primary);
+    padding-bottom: 7px;
+    box-shadow: inset 0 -7px rgba(0, 0, 0, .2), 0 0 4px rgba(0, 0, 0, .15);
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.planBackgroundContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.plan1 {
+    background-color: var(--colors-tertiary);
+}
+
+.plan2 {
+    background: linear-gradient(45deg, var(--colors-secondary), var(--colors-tertiary));
+}
+
+.plan3 {
+    background-color: var(--colors-secondary);
+}
+
+.planBackground {
+    height: 125px;
+    width: 400px;
+    padding-bottom: 7px;
+    box-shadow: inset 0 -7px rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    position: absolute;
+    top: -30px;
+    left: -25px;
+    transform: rotate(5deg);
+}
+
+.planSale,
+.planTop {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+}
+
+.planTop {
+    font-size: 65px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.planPrice,
+.planSubText {
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    color: #fff;
+}
+
+.planPrice {
+    font-size: 90px;
+    font-weight: 700;
+}
+
+.planSubText {
+    font-size: 16px;
+    opacity: .8;
+    margin-bottom: 25px;
+}
+
+.planDetail {
+    font-size: 22px;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    color: #fff;
+}
+
+.planSpacer {
+    width: 80%;
+    margin: 3px auto;
+    height: 2px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+.planButton {
+    width: 80%;
+    margin: 25px auto 20px;
+}
+
+.planButtonInside {
+    height: 40px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.button {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: filter .25s;
+}
+
+.shadow {
+    background: rgba(0, 0, 0, .25);
+    transform: translateY(2px);
+    transition: transform .6s cubic-bezier(.3, .7, .4, 1)
+}
+
+.edge,
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px
+}
+
+.edge {
+    filter: brightness(.7);
+}
+
+.front {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    transform: translateY(-4px);
+    transition: transform .6s cubic-bezier(.3, .7, .4, 1)
+}
+
+.button:hover {
+    filter: brightness(110%)
+}
+
+.button:hover .front {
+    transform: translateY(-6px);
+    transition: transform .25s cubic-bezier(.3, .7, .4, 1.5)
+}
+
+.button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms
+}
+
+.button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform .25s cubic-bezier(.3, .7, .4, 1.5)
+}
+
+.button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms
+}

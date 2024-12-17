@@ -1,0 +1,51 @@
+.orRow {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    font-family: Nunito, sans-serif;
+    font-size: 14px;
+    margin: 0 auto 10px;
+    max-width: 330px;
+    width: 80%;
+}
+
+.orBar {
+    background-color: #fff;
+    flex-grow: 1;
+    height: 1px;
+}
+
+.orText {
+    margin: 0 7px;
+}
+
+.errorContainer {
+    align-items: center;
+    border: 2px solid #ce1313;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    margin: auto auto 20px;
+    max-width: 330px;
+    width: 80%
+}
+
+.errorIcon {
+    color: #ce1313;
+    height: 20px;
+    margin-left: 13px;
+    margin-right: 13px;
+    min-width: 20px;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 20px
+}
+
+.errorText {
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    margin: 8px 5px 5px;
+    text-align: left
+}

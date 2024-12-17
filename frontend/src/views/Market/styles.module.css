@@ -1,0 +1,335 @@
+.header {
+    font-family: "Nunito", sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    margin: 15px 5% 10px;
+    color: #fff;
+}
+
+.mTokenBalance,
+.tokenBalance {
+    height: 55px;
+    background-color: var(--colors-primary);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+    padding: 0 10px 6px;
+    box-shadow: inset 0 -6px rgba(0, 0, 0, .2), 0 0 4px rgba(0, 0, 0, .15);
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.tokenBalance {
+    margin: 0 10px;
+    display: flex;
+}
+
+.mTokenBalance {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    display: none;
+}
+
+@media only screen and (max-width: 850px) {
+    .mTokenBalance {
+        display: flex;
+    }
+}
+
+.tokenBalanceIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 7px;
+}
+
+.flex {
+    display: flex;
+}
+
+.mInstantButton {
+    display: none;
+    background-color: var(--colors-primary);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
+    height: 20px;
+    padding: 0 10px;
+    margin: 0 5%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1010px) {
+    .mInstantButton {
+        display: flex;
+    }
+}
+
+.storeContainer {
+    position: fixed;
+    right: 2.5%;
+    width: 250px;
+    height: 375px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 1010px) {
+    .storeContainer {
+        display: none;
+    }
+}
+
+.cashierBlook {
+    position: absolute;
+    bottom: 110px;
+    right: 60px;
+    width: 70px;
+    transform: rotate(10deg);
+}
+
+.storeImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.instantButton {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--colors-primary);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
+    height: 20px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.leftColumn {
+    margin: 25px 0 35px 5%;
+    width: calc(90% - 250px);
+    padding-bottom: 20px;
+}
+
+@media only screen and (max-width: 1010px) {
+    .leftColumn {
+        margin: 25px 5% 35px;
+        width: 90%;
+    }
+}
+
+.packsWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 210px);
+    grid-gap: 25px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1010px) {
+
+    .packsWrapper,
+    .weeklyWrapper {
+        justify-content: center;
+    }
+}
+
+.subheader {
+    font-family: "Nunito", sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.weeklyWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    margin: -12.5px;
+}
+
+@media only screen and (max-width: 1010px) {
+    .weeklyWrapper {
+        margin: 0 -12.5px;
+        width: unset;
+    }
+}
+
+.weeklyContainer {
+    width: 270px;
+    height: 190px;
+    margin: 12.5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background: linear-gradient(var(--colors-primary), var(--colors-tertiary));
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 -7px rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+    transition: .2s;
+}
+
+.weeklyContainer:hover {
+    transform: scale(.95);
+}
+
+.weeklyName,
+.weeklyTitle {
+    font-family: "Titan One", sans-serif;
+    color: #fff;
+    text-shadow: 1px 1px 0 grey;
+}
+
+.weeklyName {
+    font-size: 22px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 10px;
+}
+
+.weeklyBanner {
+    width: 90%;
+}
+
+.weeklyBottom,
+.weeklyRarity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 24px;
+    color: #fff;
+    position: absolute;
+    bottom: 15px;
+}
+
+.weeklyBottom {
+    justify-content: center;
+    padding: 0 12px;
+    background-color: rgba(0, 0, 0, .2);
+    font-family: "Titan One", sans-serif;
+    font-size: 18px;
+    text-shadow: 1px 1px 0 grey;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    left: 0;
+}
+
+.weeklyRarity {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 7px 0 12px;
+    right: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.packContainer {
+    width: 210px;
+    height: 210px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--colors-primary);
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 7px;
+    box-shadow: inset 0 -7px rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    will-change: transform;
+    transition: .2s;
+}
+
+.packContainer:hover {
+    transform: scale(.95);
+}
+
+.packImgContainer {
+    height: 100%;
+    position: relative;
+}
+
+.packImg,
+.packShadow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(10deg);
+}
+
+.packShadow {
+    width: 70%;
+    filter: brightness(0) invert(100%);
+    opacity: .5;
+}
+
+.packImg {
+    width: 65%;
+}
+
+.packBottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    padding: 0 12px;
+    background-color: rgba(0, 0, 0, .2);
+    font-family: "Titan One", sans-serif;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 1px 1px 0 grey;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+}
+
+.packPriceImg {
+    width: 16px;
+    height: 16px;
+    margin-right: 7px;
+}
+

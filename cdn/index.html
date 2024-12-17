@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, viewport-fit=cover" />
+    <meta name="description" content="Purpet is a new and cool Blooket Private server built on industry standards." />
+    <meta property="og:image" content="/favicon.png" />
+    <meta name="theme-color" content="#3c005d" />
+
+    <title>CDN | Purpet</title>
+</head>
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Titan+One");
+
+    html,
+    body {
+        margin: 0px;
+        padding: 0px;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    body,
+    div {
+        font-family: "Nunito", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    :root {
+        --colors-primary: #3c005d;
+        --colors-secondary: #590080;
+        --colors-tertiary: #9070a3;
+        --colors-background: #4a006e;
+    }
+
+    .body {
+        position: absolute;
+        overflow-x: hidden;
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .regularBody {
+        height: calc(100% - 55px);
+        top: 55px;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .header {
+        background-color: var(--colors-primary);
+        width: 100%;
+        height: 55px;
+        padding-bottom: 6px;
+        box-shadow: inset 0 -6px rgba(0, 0, 0, .2);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        z-index: 10;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+    }
+
+    .purpetText {
+        color: #fff;
+        line-height: 49px;
+        font-size: 40px;
+        text-align: left;
+        margin-left: 40px;
+        font-family: "Titan One", sans-serif;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        outline: none;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 520px;
+        background-color: var(--colors-primary);
+        box-shadow: inset 0 -7px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.15);
+        border-radius: 7px;
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .container {
+            width: 320px;
+        }
+    }
+
+    .containerHeader {
+        text-align: center;
+        font-size: 200px;
+        margin: 0 20px;
+        font-family: "Titan One", sans-serif;
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .containerHeader {
+            font-size: 130px;
+        }
+    }
+
+    .blookContainer {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        outline: none;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        height: 160px;
+        margin: auto 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .blookContainer {
+            height: 100px;
+        }
+    }
+
+    .blook {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: contain;
+        object-fit: contain;
+    }
+
+    .containerText {
+        text-align: center;
+        font-size: 24px;
+        margin: 10px 30px 20px;
+        font-family: "Nunito", sans-serif;
+        color: #fff;
+    }
+
+    .background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: linear-gradient(45deg, var(--colors-primary) 0%, var(--colors-secondary) 100%);
+        overflow: hidden;
+        z-index: -2;
+    }
+
+    .blooksBackground {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: 50%;
+        left: 50%;
+        background-size: 550px;
+        background-position: -100px -100px;
+        background-image: url("https://cdn.purpet.xyz/global/background.png");
+        opacity: 0.075;
+        transform: translate(-50%, -50%) rotate(15deg);
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div class="body">
+            <div class="header">
+                <a class="purpetText" href="/">Purpet</a>
+            </div>
+
+            <div class="background">
+                <div class="blooksBackground"></div>
+            </div>
+
+            <div class="regularBody">
+                <div class="container">
+                    <div class="containerHeader">
+                        4
+                        <div class="blookContainer">
+                            <img class="blook" src="https://cdn.purpet.xyz/blooks/blobfish.svg" draggable="false" />
+                        </div>
+                        4
+                    </div>
+
+                    <div class="containerText">
+                        The page you are looking for does not exist.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

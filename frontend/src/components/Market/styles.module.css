@@ -1,0 +1,412 @@
+.openBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    overflow: hidden;
+}
+
+.openPackContainer {
+    outline: none;
+    cursor: pointer;
+}
+
+.openingPackContainer,
+.openPackContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 360px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    opacity: 0;
+    animation: fadeIn .2s linear .3s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.openPackTop {
+    position: absolute;
+    bottom: 306.5px;
+    left: 2.5px;
+    width: 315px;
+    height: 233px;
+    background-size: 2835px 233px;
+    background-repeat: no-repeat;
+}
+
+.openPack {
+    width: 320px;
+    height: 307px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: top left;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.openBigButton {
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    z-index: 100;
+}
+
+.canOpen {
+    cursor: pointer;
+}
+
+.openBigButton,
+.phaserContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.openContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 400px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .15);
+    background-color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .openContainer {
+        width: 300px;
+    }
+}
+
+.blookBackground {
+    width: 100%;
+    height: 100%;
+}
+
+.unlockedBlookImage {
+    position: absolute;
+    bottom: 85px;
+    left: 105px;
+    width: 190px;
+}
+
+@media only screen and (max-width: 600px) {
+    .unlockedBlookImage {
+        position: absolute;
+        bottom: 64px;
+        left: 78.5px;
+        width: 143px;
+    }
+}
+
+.blookContainer {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.blook {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.isOpeningPackTop {
+    animation: openTop .4s steps(8) forwards;
+}
+
+@keyframes openTop {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -2520px;
+    }
+}
+
+.isOpeningPack {
+    animation: open .1s .3s forwards;
+}
+
+@keyframes open {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(5deg)
+    }
+}
+
+.openingPackContainer {
+    opacity: 1;
+    animation: dropPack .2s linear .4s forwards;
+}
+
+@keyframes dropPack {
+    0% {
+        transform: translate(-50%, -50%)
+    }
+
+    to {
+        transform: translate(-50%, 50vh)
+    }
+}
+
+.bottomShadow {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    box-shadow: inset 0 -9px rgba(0, 0, 0, .2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.bottomText {
+    position: absolute;
+    bottom: 15px;
+    left: 5%;
+    width: 90%;
+    font-family: "Titan One", sans-serif;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, .4);
+}
+
+@media only screen and (max-width: 600px) {
+    .bottomText {
+        bottom: 15px;
+    }
+}
+
+.unlockedText {
+    position: absolute;
+    top: 15px;
+    left: 5%;
+    width: 90%;
+    font-family: "Titan One", sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .unlockedText {
+        top: 5px;
+        left: 2.5%;
+        width: 95%;
+    }
+}
+
+.unlockedBlook {
+    text-shadow: 0 3px 3px rgba(0, 0, 0, .2);
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-family: "Titan One", sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+    .unlockedBlue {
+        width: 100%;
+        height: 30px;
+    }
+}
+
+.rarityText {
+    font-size: 30px;
+    -webkit-text-stroke: #3a3a3a 1.5px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .bottomText,
+    .rarityText {
+        font-size: 20px;
+    }
+}
+
+.openingContainer {
+    animation: growIn .2s linear .5s forwards;
+}
+
+.openingContainerCommon {
+    animation: growIn .2s linear .5s forwards;
+}
+
+.openingContainerUncommon {
+    animation: growIn .2s linear .5s forwards;
+}
+
+.openingContainerRare {
+    animation: growIn .2s linear .5s forwards;
+}
+
+@keyframes growIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0)
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1)
+    }
+}
+
+.openingContainerEpic {
+    animation: epicOpen 1.5s linear .5s forwards
+}
+
+@keyframes epicOpen {
+    0% {
+        transform: translate(calc(-50% - 25vw), calc(-50% - 25vh)) rotate(15deg) scale(.1)
+    }
+
+    25% {
+        transform: translate(calc(-50% - 25vw), calc(-50% - 25vh)) rotate(15deg) scale(.1)
+    }
+
+    25.1% {
+        transform: translate(calc(-50% + 25vw), calc(-50% + 25vh)) rotate(-15deg) scale(.2)
+    }
+
+    50% {
+        transform: translate(calc(-50% + 25vw), calc(-50% + 25vh)) rotate(-15deg) scale(.2)
+    }
+
+    50.1% {
+        transform: translate(calc(-50% - 25vw), calc(-50% + 25vh)) rotate(15deg) scale(.3)
+    }
+
+    75% {
+        transform: translate(calc(-50% - 25vw), calc(-50% + 25vh)) rotate(15deg) scale(.3)
+    }
+
+    75.1% {
+        transform: translate(calc(-50% + 25vw), calc(-50% - 25vh)) rotate(-15deg) scale(.4)
+    }
+
+    99.9% {
+        transform: translate(calc(-50% + 25vw), calc(-50% - 25vh)) rotate(-15deg) scale(.4)
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(0) scale(1)
+    }
+}
+
+.openingContainerLegendary {
+    animation: legendaryOpen 2.5s ease-in 1s forwards
+}
+
+@keyframes legendaryOpen {
+    0% {
+        transform: translate(calc(-50% - 25vw), calc(-50% - 100vh)) scale(.1)
+    }
+
+    35% {
+        transform: translate(calc(-50% - 25vw), calc(-50% + 100vh)) scale(.1)
+    }
+
+    35.1% {
+        transform: translate(calc(-50% + 25vw), calc(-50% - 100vh)) scale(.3)
+    }
+
+    70% {
+        transform: translate(calc(-50% + 25vw), calc(-50% + 100vh)) scale(.3)
+    }
+
+    70.1% {
+        transform: translate(-50%, calc(-50% - 100vh)) scale(1)
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1)
+    }
+}
+
+.openingContainerChroma {
+    animation: chromaOpen 2s linear 1.5s forwards
+}
+
+@keyframes chromaOpen {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(0)
+    }
+
+    10% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(.1)
+    }
+
+    20% {
+        transform: translate(-50%, -50%) rotate(1turn) scale(.2)
+    }
+
+    30% {
+        transform: translate(-50%, -50%) rotate(540deg) scale(.3)
+    }
+
+    40% {
+        transform: translate(-50%, -50%) rotate(2turn) scale(.4)
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(900deg) scale(.5)
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(3turn) scale(.6)
+    }
+
+    70% {
+        transform: translate(-50%, -50%) rotate(1260deg) scale(.7)
+    }
+
+    80% {
+        transform: translate(-50%, -50%) rotate(4turn) scale(.8)
+    }
+
+    90% {
+        transform: translate(-50%, -50%) rotate(1620deg) scale(.9)
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(5turn) scale(1)
+    }
+}

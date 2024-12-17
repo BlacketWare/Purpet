@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Titan+One");
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body,
+div {
+    font-family: "Nunito", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --colors-primary: #3c005d;
+    --colors-secondary: #590080;
+    --colors-tertiary: #9070a3;
+    --colors-background: #4a006e;
+}
+
+#root {
+    position: absolute;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.body {
+    position: absolute;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.regularBody {
+    height: calc(100% - 55px);
+    top: 55px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.profileBody {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: calc(100% - 220px);
+    left: 220px;
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (max-width: 850px) {
+    .profileBody {
+        left: 0;
+        width: 100%;
+        top: 55px;
+        height: calc(100% - 55px);
+    }
+}

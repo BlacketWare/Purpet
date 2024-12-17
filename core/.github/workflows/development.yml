@@ -1,0 +1,32 @@
+name: development update
+on: [push]
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh development update
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /home/server/Purpet/dev
+          pm2 delete purpetdevapi
+          rm -rf backend
+          git clone https://${{ secrets.PAT }}@github.com/PurpetXYZ/backend.git
+          cd backend
+          pnpm install
+          dotenv -e ../.env -- npx prisma generate
+          dotenv -e ../.env -- npx prisma migrate deploy
+          pm2 start pnpm --name "purpetdevapi" -- run start:dev
+          pm2 save
+          cd /home/server/Purpet/dev
+          pm2 delete purpetdevfrontend
+          rm -rf frontend
+          git clone https://${{ secrets.PAT }}@github.com/PurpetXYZ/frontend.git
+          cd frontend
+          pnpm install
+          pm2 start pnpm --name "purpetdevfrontend" -- run dev
+          pm2 save

@@ -1,0 +1,287 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+// definitions
+
+// user
+
+model User {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+
+    username String  @unique
+    // hashed ofc
+    password String?
+
+    jwtTokens JwtTokens[]
+
+    currentIp String?
+    ips       Ips[]
+
+    tokens              Int       @default(0)
+    lastDailyTokenClaim DateTime?
+
+    stats   UserStats @relation(fields: [statsId], references: [id])
+    statsId Int       @unique
+
+    punishments      Punishment[] @relation("user")
+    punishmentsStaff Punishment[] @relation("staff")
+
+    avatar   Blook @relation(fields: [avatarId], references: [id])
+    avatarId Int
+
+    banner   Banner @relation(fields: [bannerId], references: [id])
+    bannerId Int
+
+    // groups are overarching for perms since we're not fucking stupid
+    group   Group @relation(fields: [groupId], references: [id])
+    groupId Int
+
+    // user specific perms
+    perms Int @default(0)
+
+    friends   User[] @relation("friends")
+    friendsOf User[] @relation("friends")
+
+    messages Message[]
+    uploads  Upload[]
+    blooks   UserBlooks[]
+
+    @@map("users")
+}
+
+model JwtTokens {
+    id String @id
+
+    user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId Int
+
+    refreshToken String
+}
+
+model UserBlooks {
+    id Int @id @default(autoincrement())
+
+    user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId Int
+
+    blook   Blook @relation(fields: [blookId], references: [id])
+    blookId Int
+}
+
+model UserStats {
+    id Int @id @default(autoincrement())
+
+    user User?
+
+    messages   Int @default(0)
+    experience Int @default(0)
+    packs      Int @default(0)
+}
+
+model Ips {
+    id Int @id @default(autoincrement())
+
+    ip     String
+    user   User   @relation(fields: [userId], references: [id])
+    userId Int
+}
+
+model Punishment {
+    id Int @id @default(autoincrement())
+
+    user   User @relation("user", fields: [userId], references: [id], onDelete: Cascade)
+    userId Int
+
+    type PunishmentType
+
+    length  DateTime
+    reason  String?
+    staff   User     @relation("staff", fields: [staffId], references: [id])
+    staffId Int
+}
+
+enum PunishmentType {
+    RESTRICT
+    MUTE
+}
+
+model Group {
+    id   Int    @id @default(autoincrement())
+    user User[]
+
+    badge   Badge? @relation(fields: [badgeId], references: [id])
+    badgeId Int?   @unique
+
+    // USER
+    // TESTER
+    // HELPER
+    // MODERATOR
+    // ADMIN
+    // DEVELOPER
+    // OWNER
+    // names of group see above
+    name        String
+    description String?
+    // these perms are the group's base perms
+    // not going to do inheriting perms for multiple groups since i cba lol
+    perms       Int     @default(0)
+}
+
+model Badge {
+    id Int @id @default(autoincrement())
+
+    group Group?
+
+    name        String
+    description String?
+
+    asset   Resource @relation(fields: [assetId], references: [id])
+    assetId Int      @unique
+}
+
+// chat
+
+model Room {
+    id Int @id @default(autoincrement())
+
+    name        String
+    description String?
+    password    String?
+    isPrivate   Boolean @default(false)
+    isSystem    Boolean @default(false)
+
+    messages Message[]
+}
+
+model Message {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+
+    author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+    authorId Int
+
+    room   Room @relation(fields: [roomId], references: [id])
+    roomId Int
+
+    content String
+    type    MessageType
+}
+
+enum MessageType {
+    TEXT
+    IMAGE
+    VIDEO
+}
+
+// storage
+
+model Pack {
+    id Int @id @default(autoincrement())
+
+    name        String  @unique
+    description String?
+    price       Int
+    hidden      Boolean @default(false)
+
+    asset   Resource @relation("icon", fields: [assetId], references: [id])
+    assetId Int      @unique
+
+    background   Resource @relation("background", fields: [backgroundId], references: [id])
+    backgroundId Int      @unique
+
+    innerColour   Colour @relation("innerColour", fields: [innerColourId], references: [id])
+    innerColourId Int    @unique
+
+    outerColour   Colour @relation("outerColour", fields: [outerColourId], references: [id])
+    outerColourId Int    @unique
+
+    blooks Blook[]
+}
+
+model Blook {
+    id Int @id @default(autoincrement())
+
+    userAvatars User[]
+    userBlooks  UserBlooks[]
+
+    pack   Pack @relation(fields: [packId], references: [id])
+    packId Int
+
+    name        String
+    description String?
+    chance      Int
+
+    asset    Resource @relation(fields: [assetId], references: [id])
+    assetId  Int      @unique
+    rarity   Rarity   @relation(fields: [rarityId], references: [id])
+    rarityId Int
+}
+
+model Banner {
+    id Int @id @default(autoincrement())
+
+    userBanners User[]
+
+    name        String
+    description String?
+
+    asset   Resource @relation(fields: [assetId], references: [id])
+    assetId Int      @unique
+}
+
+model Rarity {
+    id   Int    @id @default(autoincrement())
+    name String
+
+    blooks Blook[]
+
+    colour   Colour @relation(fields: [colourId], references: [id])
+    colourId Int    @unique
+}
+
+model Colour {
+    id Int @id @default(autoincrement())
+
+    rarity Rarity?
+
+    innerPackColour Pack? @relation("innerColour")
+    outerPackColour Pack? @relation("outerColour")
+
+    hex String @default("000000")
+}
+
+model Upload {
+    id Int @id @default(autoincrement())
+
+    author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+    authorId Int
+
+    resource   Resource @relation(fields: [resourceId], references: [id])
+    resourceId Int      @unique
+}
+
+model Resource {
+    id Int @id @default(autoincrement())
+
+    upload Upload?
+
+    blook          Blook?
+    banner         Banner?
+    badge          Badge?
+    pack           Pack?   @relation("icon")
+    packBackground Pack?   @relation("background")
+
+    path String?
+}
